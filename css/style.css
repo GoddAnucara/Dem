@@ -1,0 +1,95 @@
+/* === Global Settings === */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow-y: scroll;           /* Controlled vertical scroll */
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background: #000010;          /* fallback background */
+}
+
+/* === Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Background Canvas === */
+#sky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 20%, #08101d, #050c1f 80%);
+  z-index: 0;          /* canvas behind everything */
+  cursor: pointer;     /* clickable for moon */
+}
+
+/* === Main Header (Happy Birthday) === */
+.header-text {
+  font-size: 5rem;                   /* Large dramatic header */
+  font-family: "Leckerli One", cursive; 
+  background: linear-gradient(90deg, #fefefe, #a770ef, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 0px 25px rgba(160, 120, 255, 0.8);
+  transition: opacity 1s ease, transform 1s ease;
+  position: relative;
+  top:200px;
+  z-index: 1;                        /* appear above canvas */
+  text-align: center;
+}
+
+.header-text.hidden {
+  opacity: 0;
+  transform: translateY(-100px);
+  pointer-events: none;
+}
+
+/* === Paragraph Message === */
+.bottom-text {
+  font-family: 'Orbitron', sans-serif; /* sci-fi vibe */
+  opacity: 0;
+  margin-top: 0px;
+  font-size: 1.8rem;
+  width:90%;
+  max-width: 1000px;
+  line-height: 1.8;
+  transition: opacity 1.5s ease, transform 1s ease;
+  text-shadow: 0px 0px 10px rgba(160, 120, 255, 0.5); /* subtle glow */
+  text-align: center;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;                        /* appear above canvas */
+}
+
+.bottom-text.show-text {
+  opacity: 1;
+}
+
+/* === Moon as Continue Button === */
+.moon-active {
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+/* === Mobile Adjustments for Bottom Text === */
+@media (max-width: 768px) {
+  .bottom-text {
+    font-size: 1.5rem;       /* shrink text for small screens */
+    max-width: 95%;          /* allow wrapping */
+    top: 60%;                /* push a bit lower */
+    transform: translate(-50%, -40%); /* adjust vertical centering */
+    margin-bottom: 20vh; 
+  }
+}
