@@ -2,15 +2,14 @@
 body {
   background: linear-gradient(to bottom, #0a0a1a, #2a1459, #4b1c8c, #7b3cb2, #b678d6);
   color: #f8f5ff;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', 'Poppins', sans-serif;
   text-align: center;
   overflow-x: hidden;
   min-height: 100vh;
   margin: 0;
-  padding: 0;
+  padding: 40px 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   position: relative;
 }
@@ -24,15 +23,36 @@ body::after {
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.2) 50%,
-    rgba(0, 0, 0, 0.6) 100%
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(0, 0, 0, 0.45) 100%
   );
   pointer-events: none;
   z-index: 0;
 }
 
-/* === Twinkling stars background === */
+/* === Text container === */
+.paragraph-container {
+  width: min(900px, 90%);
+  background: rgba(0, 0, 20, 0.25);
+  padding: 35px 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  z-index: 2;
+  margin-top: 40px;
+  text-align: left;
+  line-height: 1.4;
+  font-size: 1.05rem;
+}
+
+/* === Paragraph styling === */
+.paragraph-container p {
+  margin-bottom: 25px;
+  white-space: pre-line; 
+}
+
+/* === Twinkling stars === */
 .stars {
   position: fixed;
   top: 0;
@@ -59,7 +79,7 @@ body::after {
   100% { opacity: 1; transform: scale(1.4); }
 }
 
-/* === Constellation lines (appear + fade) === */
+/* === Constellations === */
 .constellation {
   position: absolute;
   width: 1px;
@@ -84,11 +104,11 @@ h1, h2, h3 {
   margin: 10px;
 }
 
-/* === Button style === */
+/* === Button === */
 .main-menu-btn {
   display: inline-block;
   padding: 12px 24px;
-  margin: 20px;
+  margin: 25px;
   font-size: 1.1rem;
   font-weight: 600;
   border: 2px solid rgba(255, 215, 0, 0.8);
@@ -109,7 +129,7 @@ h1, h2, h3 {
   transform: scale(1.05);
 }
 
-/* === Button fade-in === */
+/* === Fade-in === */
 .button-layer.active .main-menu-btn {
   animation: fadeIn 1.2s ease forwards;
 }
@@ -119,42 +139,18 @@ h1, h2, h3 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* === Responsiveness === */
-@media (max-width: 1024px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-  .main-menu-btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    margin: 15px;
-  }
-}
-
+/* === Responsive === */
 @media (max-width: 768px) {
-  body {
-    padding: 20px;
-    justify-content: flex-start;
-  }
-  h1 { font-size: 1.7rem; }
-  h2 { font-size: 1.3rem; }
-  h3 { font-size: 1.1rem; }
-  .main-menu-btn {
-    width: 80%;
-    max-width: 280px;
-    padding: 12px 16px;
+  .paragraph-container {
+    padding: 25px 25px;
     font-size: 1rem;
-    border-width: 1.8px;
   }
 }
 
 @media (max-width: 480px) {
-  h1 { font-size: 1.5rem; }
-  h2 { font-size: 1.1rem; }
-  h3 { font-size: 1rem; }
-  .main-menu-btn {
-    width: 90%;
-    max-width: 250px;
-    padding: 10px 14px;
+  .paragraph-container {
+    padding: 20px;
     font-size: 0.95rem;
+    line-height: 1.7;
   }
 }
