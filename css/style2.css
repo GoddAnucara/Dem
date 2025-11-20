@@ -1078,27 +1078,23 @@ body {
 
 
 /* Button placements */
-/*.btn-top-left {
+.btn-top-left {
   top: 30px;
   left: 30px;
 }
-*/
+
 .btn-top-right {
   top: 30px;
-  left: 30px;
+  right: 30px;
 }
 
 .btn-bottom-left {
-  top: 30px;
-  left: 43%;
-  transform: scale(1);
-  transform-origin: center;
-
-  
+  bottom: 30px;
+  left: 30px;  
 }
 
 .btn-bottom-right {
-  top: 30px;
+  bottom: 30px;
   right: 30px;
 }
 
